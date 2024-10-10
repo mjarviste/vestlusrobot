@@ -9,9 +9,14 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
+        primary: "var(--primary)",
         foreground: "var(--foreground)",
+        secondary: "var(--secondary)",
+        tertiary: "var(--tertiary)",
       },
+      lineHeight: {
+        "12": "3rem",
+      }
     },
   },
   plugins: [],

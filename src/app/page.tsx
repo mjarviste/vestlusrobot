@@ -1,30 +1,26 @@
 'use client'
-
 import { useChat } from "ai/react";
+import Message from './components/Message'
 import Image from "next/image";
 export default function Home() {
 
   const {messages, handleSubmit, input, handleInputChange} = useChat();
 
   return (
-    <main className="h-screen w-full flex justify-center bg-white">
-      <div className="h-full max-w-screen-lg bg-stone-300 flex flex-col py-20 px-10">
-        <div className="flex flex-col flex-1 overflow-y-auto text-black">
+    <main className="h-screen w-full flex justify-center bg-primary">
+      <div className="h-full flex-1 max-w-screen-lg flex flex-col py-8 px-6">
+        <div className="flex flex-col flex-1 overflow-y-auto text-black gap-2">
           {messages.map((message) => (
-            <div key={message.id} className="flex items-center">
-              <p>{message.content}</p>
-            </div>
+            <Message key={message.id} message={message} />
           ))}
         </div>
-        <form className="flex align-center" onSubmit={handleSubmit}>
-          <textarea
-            className="w-full" 
-            name="message"
-            placeholder="Write Something..."
-            value={input}
-            onChange={handleInputChange}
-          />
-          <button type="submit">Send</button>
+        <form onSubmit={handleSubmit}>
+          <div className="flex align-center bg-secondary rounded-full">
+            <textarea className="w-full h-12 leading-8 bg-inherit text-white rounded-full align-center py-2 px-4 flex select-none focus:outline-none" name="message"placeholder="Write Something" value={input} onChange={handleInputChange}/>
+            <button className="rounded-full bg-tertiary w-16 flex justify-center items-center" type="submit">
+              <Image src='/sendIcon.svg' alt="Send Icon" width={32} height={32}></Image>
+            </button>
+          </div>
         </form>
       </div>
     </main>
