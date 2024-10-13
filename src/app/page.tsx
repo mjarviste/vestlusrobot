@@ -1,27 +1,42 @@
 'use client'
 import { useChat } from "ai/react";
 import Message from './components/Message'
-import Image from "next/image";
+import MessageInputField from './components/MessageInputField'
+import MessagesContainer from './components/MessagesContainer'
+import NoMessagesContainer from './components/NoMessagesContainer'
+import { useEffect, useRef } from "react";
 export default function Home() {
 
   const {messages, handleSubmit, input, handleInputChange} = useChat();
 
+  const messageEndRef = useRef<HTMLInputElement>(null)
+
+  const scrollToBottom = () => {
+    messageEndRef.current?.scrollIntoView({behavior: "smooth"})
+  }
+
+  const onEnterPress = (e) => {
+    if(e.keyCode == 13 && e.shiftKey == false) {
+      e.preventDefault();
+      const formEl = document.querySelector('#form-el')
+      formEl?.requestSubmit()
+    }
+  }
+
+  useEffect(() => {
+    scrollToBottom()
+  }, [messages])
+
   return (
-    <main className="h-screen w-full flex justify-center bg-primary">
-      <div className="h-full flex-1 max-w-screen-lg flex flex-col py-8 px-6">
-        <div className="flex flex-col flex-1 overflow-y-auto text-black gap-2">
-          {messages.map((message) => (
-            <Message key={message.id} message={message} />
-          ))}
-        </div>
-        <form onSubmit={handleSubmit}>
-          <div className="flex align-center bg-secondary rounded-full">
-            <textarea className="w-full h-12 leading-8 bg-inherit text-white rounded-full align-center py-2 px-4 flex select-none focus:outline-none" name="message"placeholder="Write Something" value={input} onChange={handleInputChange}/>
-            <button className="rounded-full bg-tertiary w-16 flex justify-center items-center" type="submit">
-              <Image src='/sendIcon.svg' alt="Send Icon" width={32} height={32}></Image>
-            </button>
-          </div>
-        </form>
+    <main className="h-screen w-full flex justify-center bg-primary font-ubuntu">
+      <div className="h-full w-full flex flex-col py-8 sm:py-12 px-4 sm:px-8 justify-between">
+        {messages.length === 0 
+        ?
+        <NoMessagesContainer/>
+        :
+        <MessagesContainer messages={messages} messageEndRef={messageEndRef}/>
+        }
+        <MessageInputField handleSubmit={handleSubmit} onEnterPress={onEnterPress} input={input} handleInputChange={handleInputChange}/>
       </div>
     </main>
   );

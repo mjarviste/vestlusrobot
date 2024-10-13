@@ -16,7 +16,10 @@ const config: Config = {
       },
       lineHeight: {
         "12": "3rem",
-      }
+      },
+      fontFamily: {
+        ubuntu: ['Ubuntu-Regular', 'sans-serif'],
+      },
     },
   },
   plugins: [],

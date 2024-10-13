@@ -11,7 +11,7 @@
   :root {
     --primary: #1D2020;
     --secondary: #4D5456;
-    --tertiary: #7D898C;
+    --tertiary: #00B890;
   }
 }
 
@@ -25,4 +25,11 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+@font-face {
+  font-family: 'Ubuntu-Regular';
+  src: url('/fonts/Ubuntu-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
