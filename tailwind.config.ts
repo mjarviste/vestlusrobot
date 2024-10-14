@@ -10,7 +10,6 @@ const config: Config = {
     extend: {
       colors: {
         primary: "var(--primary)",
-        foreground: "var(--foreground)",
         secondary: "var(--secondary)",
         tertiary: "var(--tertiary)",
       },
@@ -19,13 +18,6 @@ const config: Config = {
       },
       fontFamily: {
         ubuntu: ['Ubuntu-Regular', 'sans-serif'],
-      },
-      listStyleType: {
-        none: 'none',
-        disc: 'disc',
-        decimal: 'decimal',
-        square: 'square',
-        roman: 'upper-roman',
       },
     },
   },

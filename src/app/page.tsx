@@ -1,8 +1,8 @@
 'use client'
 import { useChat } from "ai/react";
-import MessageInputComponent from './components/MessageInputComponent'
-import MessagesContainerComponent from './components/MessagesContainerComponent'
-import NoMessagesContainerComponent from './components/NoMessagesContainerComponent'
+import ChatInput from './components/ChatInput'
+import ChatMessages from './components/ChatMessages'
+import NoChatMessages from './components/NoChatMessages'
 import { useEffect, useRef } from "react";
 export default function Home() {
 
@@ -20,7 +20,7 @@ export default function Home() {
       e.currentTarget.form?.requestSubmit()
     }
   }
-  
+
   useEffect(() => {
     scrollToBottom()
   }, [messages])
@@ -30,11 +30,11 @@ export default function Home() {
       <div className="h-full w-full flex flex-col py-8 sm:py-12 px-4 sm:px-8 justify-between">
         {messages.length === 0 
         ?
-        <NoMessagesContainerComponent/>
+        <NoChatMessages/>
         :
-        <MessagesContainerComponent messages={messages} messageEndRef={messageEndRef}/>
+        <ChatMessages messages={messages} messageEndRef={messageEndRef}/>
         }
-        <MessageInputComponent handleSubmit={handleSubmit} onEnterPress={onEnterPress} input={input} handleInputChange={handleInputChange}/>
+        <ChatInput handleSubmit={handleSubmit} onEnterPress={onEnterPress} input={input} handleInputChange={handleInputChange}/>
       </div>
     </main>
   );

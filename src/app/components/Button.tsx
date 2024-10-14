@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-const ButtonComponent = (
+const Button = (
     { btnId, imgSrc, imgAlt, imgWidth, imgHeight }
     :{ btnId: string, imgSrc: string, imgAlt: string, imgWidth: number, imgHeight: number }
     ) => {
@@ -11,4 +11,4 @@ const ButtonComponent = (
     )
 }
 
-export default ButtonComponent
+export default Button

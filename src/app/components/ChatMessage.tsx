@@ -3,11 +3,10 @@ import {marked} from 'marked'
 import { Message} from "ai";
 
 
-const MessageComponent = ({message} :{message: Message}) => {
+const ChatMessage = ({message} :{message: Message}) => {
     const convertToHtml = (text:string) => {
         return marked(text);
     }
-    console.log(message)
     return (
         <div className={`flex gap-2 items-center ${message.role === 'assistant' ? "flex-row" : " flex-row-reverse"}`} >
             {message.role === 'assistant' ? 
@@ -21,10 +20,13 @@ const MessageComponent = ({message} :{message: Message}) => {
             }
             <div
                 dangerouslySetInnerHTML={{__html: convertToHtml(String(message.content))}} 
-                className={`py-2 px-4 text-white rounded-3xl w-fit ${message.role === 'user' ? 'border-2 border-secondary border-solid' : 'border border-tertiary border-solid'}`}>
+                className={`py-2 px-4 text-white rounded-3xl w-fit ${message.role === 'user' 
+                ? 'border-2 border-secondary border-solid' 
+                : 'border border-tertiary border-solid'}`
+            }>
             </div>
         </div>
     )
 }
 
-export default MessageComponent
+export default ChatMessage

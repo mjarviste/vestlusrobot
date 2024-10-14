@@ -1,8 +1,8 @@
 import Textarea from 'react-textarea-autosize';
-import ButtonComponent from './ButtonComponent'
+import Button from './Button'
 import { ChangeEvent } from 'react';
 
-const MessageInputComponent = ({handleSubmit, onEnterPress, input, handleInputChange}:
+const ChatInput = ({handleSubmit, onEnterPress, input, handleInputChange}:
     {handleSubmit:() => void, onEnterPress:(e: React.KeyboardEvent<HTMLTextAreaElement>) => void, input:string, handleInputChange:(e: ChangeEvent<HTMLTextAreaElement>)=> void}) => {
     return (
         <form onSubmit={handleSubmit} className="flex justify-center" id="form-el">
@@ -17,10 +17,10 @@ const MessageInputComponent = ({handleSubmit, onEnterPress, input, handleInputCh
                     onChange={handleInputChange} 
                     onKeyDown={onEnterPress}
                 />
-                <ButtonComponent btnId={"submit-btn"} imgSrc={'/assets/sendIcon.svg'} imgAlt={'Send Icon'} imgWidth={32} imgHeight={32}/>
+                <Button btnId={"submit-btn"} imgSrc={'/assets/sendIcon.svg'} imgAlt={'Send Icon'} imgWidth={32} imgHeight={32}/>
             </div>
         </form>
     )
 }
 
-export default MessageInputComponent;
+export default ChatInput;
