@@ -1,4 +1,3 @@
-import { MessageListType } from "@/app";
 import {openai } from "@ai-sdk/openai"
 import { CoreMessage, streamText } from "ai"
 
