@@ -12,11 +12,13 @@
     "@ai-sdk/openai": "^0.0.66",
     "@nextui-org/input": "^2.2.5",
     "ai": "^3.4.9",
+    "marked": "^14.1.2",
     "next": "14.2.15",
     "openai": "^4.67.3",
     "react": "^18",
     "react-dom": "^18",
-    "react-textarea-autosize": "^8.5.3"
+    "react-textarea-autosize": "^8.5.3",
+    "showdown": "^2.1.0"
   },
   "devDependencies": {
     "@types/node": "^20",

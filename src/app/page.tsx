@@ -1,9 +1,8 @@
 'use client'
 import { useChat } from "ai/react";
-import Message from './components/Message'
-import MessageInputField from './components/MessageInputField'
-import MessagesContainer from './components/MessagesContainer'
-import NoMessagesContainer from './components/NoMessagesContainer'
+import MessageInputComponent from './components/MessageInputComponent'
+import MessagesContainerComponent from './components/MessagesContainerComponent'
+import NoMessagesContainerComponent from './components/NoMessagesContainerComponent'
 import { useEffect, useRef } from "react";
 export default function Home() {
 
@@ -15,14 +14,13 @@ export default function Home() {
     messageEndRef.current?.scrollIntoView({behavior: "smooth"})
   }
 
-  const onEnterPress = (e) => {
-    if(e.keyCode == 13 && e.shiftKey == false) {
+  const onEnterPress = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if(e.key == 'Enter' && e.shiftKey == false) {
       e.preventDefault();
-      const formEl = document.querySelector('#form-el')
-      formEl?.requestSubmit()
+      e.currentTarget.form?.requestSubmit()
     }
   }
-
+  
   useEffect(() => {
     scrollToBottom()
   }, [messages])
@@ -32,11 +30,11 @@ export default function Home() {
       <div className="h-full w-full flex flex-col py-8 sm:py-12 px-4 sm:px-8 justify-between">
         {messages.length === 0 
         ?
-        <NoMessagesContainer/>
+        <NoMessagesContainerComponent/>
         :
-        <MessagesContainer messages={messages} messageEndRef={messageEndRef}/>
+        <MessagesContainerComponent messages={messages} messageEndRef={messageEndRef}/>
         }
-        <MessageInputField handleSubmit={handleSubmit} onEnterPress={onEnterPress} input={input} handleInputChange={handleInputChange}/>
+        <MessageInputComponent handleSubmit={handleSubmit} onEnterPress={onEnterPress} input={input} handleInputChange={handleInputChange}/>
       </div>
     </main>
   );
