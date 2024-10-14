@@ -10,8 +10,8 @@
   --light-grey: rgb(115, 115, 115);
 }
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
+body{
+  font-family: 'Ubuntu';
 }
 
 /* FORMATTING CODE BLOCKS */
@@ -82,5 +82,12 @@ td {
   justify-content: start;
   border-left: 1px solid var(--secondary);
   border-bottom: 1px solid var(--secondary);
+}
+
+/* CUSTOM FONTS */
+
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('/fonts/Ubuntu-Regular.ttf') format('truetype');
 }
 

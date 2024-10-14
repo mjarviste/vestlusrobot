@@ -26,7 +26,7 @@ export default function Home() {
   }, [messages])
 
   return (
-    <main className="h-screen w-full flex justify-center bg-primary font-ubuntu">
+    <main className="h-screen w-full flex justify-center bg-primary">
       <div className="h-full w-full flex flex-col py-8 sm:py-12 px-4 sm:px-8 justify-between">
         {messages.length === 0 
         ?

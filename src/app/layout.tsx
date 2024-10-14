@@ -1,11 +1,5 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./styles/globals.css";
-
-const ubuntuRegular = localFont({
-  src: "../../public/fonts/Ubuntu-regular.ttf",
-  variable: "--font-ubuntu-regular",
-});
 
 export const metadata: Metadata = {
   title: "Vestlusrobot",
@@ -19,9 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${ubuntuRegular.variable} ${ubuntuRegular.variable} antialiased`}
-      >
+      <body>
         {children}
       </body>
     </html>
