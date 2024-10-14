@@ -4,7 +4,7 @@
 ## Kuidas alustada
 1. Klooni repo: git clone https://github.com/mjarviste/vestlusrobot
 2. Installige dependencied: npm install
-3. Käitage rakendust: npm run dev
+3. Käivitage rakendust: npm run dev
 4. Avage brauseris: http://localhost:3000
 
 ## Koodi Struktuur
