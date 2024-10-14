@@ -1,5 +1,5 @@
-### Vestlusrobot
-## Autor: Mihkel Järviste
+# Vestlusrobot
+### Autor: Mihkel Järviste
 
 ## Kuidas alustada
 1. Klooni repo: git clone https://github.com/mjarviste/vestlusrobot
