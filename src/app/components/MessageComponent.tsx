@@ -1,6 +1,5 @@
 import Image from "next/image"
 import {marked} from 'marked'
-import { MessageType } from "..";
 import { Message} from "ai";
 
 

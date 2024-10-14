@@ -1,5 +1,4 @@
 import { Message } from "ai"
-import { MessageListType } from ".."
 import MessageComponent from "./MessageComponent"
 import { RefObject } from "react"
 
